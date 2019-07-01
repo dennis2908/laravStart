@@ -26,7 +26,12 @@ const toast = swal.mixin({
 });
 
 window.toast = toast;
+import VueGoodTablePlugin from 'vue-good-table';
 
+// import the styles 
+import 'vue-good-table/dist/vue-good-table.css'
+
+Vue.use(VueGoodTablePlugin);
 
 window.Form = Form;
 Vue.component(HasError.name, HasError)

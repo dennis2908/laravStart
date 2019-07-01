@@ -34,6 +34,23 @@ class UserController extends Controller
         }
 
     }
+	
+	public function getUser()
+    {
+        // $this->authorize('isAdmin');
+
+        if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
+            $data =  User::all();
+			foreach($data as $k=>$v)
+			{
+				$data[$k]["delete"] = '<a class="fa fa-edit blue" href="https://www.w3schools.com">Visit W3Schools</a>';
+				
+			}
+			return $data;
+			
+        }
+
+    }
 
     /**
      * Store a newly created resource in storage.
